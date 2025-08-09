@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arunkumar | Works</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #30296d, #000000, #30296d);
+      color: white;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #0cf;
+    }
+
+    .works-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 0 25px rgba(12, 112, 226, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(12, 112, 226, 0.8);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #0cf;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      color: #ddd;
+    }
+
+    .tech-used {
+      font-size: 0.85rem;
+      margin-top: 8px;
+      font-weight: 500;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>My Projects</h1>
+
+  <div class="works-container">
+
+    <div class="card" data-aos="fade-up">
+      <h2>Electronic Health Record System</h2>
+      <p>A secure and scalable platform to manage electronic patient records using MongoDB and Flask.</p>
+      <div class="tech-used">Skills: Python, Flask, MongoDB, HTML, CSS, JavaScript</div>
+    </div>
+
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <h2>Voting Web Application</h2>
+      <p>Online platform for casting and managing votes with admin and user features built on Django framework.</p>
+      <div class="tech-used">Skills: Python, Django, HTML, CSS, JavaScript</div>
+    </div>
+
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <h2>Portfolio Website</h2>
+      <p>This glowing interactive portfolio was created using HTML, CSS, JS and animations. Fully responsive design.</p>
+      <div class="tech-used">Skills: HTML, CSS, JavaScript</div>
+    </div>
+
+    <div class="card" data-aos="fade-up" data-aos-delay="300">
+      <h2>Buestock IPO Website</h2>
+      <p>A user-focused platform for viewing and investing in upcoming IPOs, designed with modern frontend and backend tools.</p>
+      <div class="tech-used">Skills: Python, HTML, CSS, JavaScript, Node.js, Django, MongoDB, Bootstrap</div>
+    </div>
+
+  </div>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  </script>
+</body>
+</html>

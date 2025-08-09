@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arunkumar | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #30296dff, #000000ff, #30296dff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 750px;
+      background: rgba(0, 0, 0, 0.06);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(12, 112, 226, 0.84);
+      overflow: hidden;
+      flex-wrap: wrap;
+      z-index: 2;
+      position: relative;
+    }
+
+    .left-section {
+      flex: 1;
+      min-width: 250px;
+      padding: 40px;
+    }
+
+    .left-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .left-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    nav a,
+    .resume-btn {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.3), 0 4px 12px rgba(12, 112, 226, 0.84);
+      backdrop-filter: blur(6px);
+      transition: background 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+      text-align: center;
+      font-size: 0.82rem;
+      min-width: 130px;
+      max-width: 130px;
+      align-self: flex-start;
+    }
+
+    nav a:hover,
+    .resume-btn:hover {
+      background: rgba(12, 112, 226, 0.84);
+      transform: scale(1.05);
+    }
+
+    .right-section {
+      flex: 1;
+      min-width: 280px;
+      height: 400px;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    spline-viewer {
+      width: 100%;
+      height: 125%;
+      transform: translateX(14%);
+      border-radius: 20px;
+    }
+
+    .cursor {
+      display: inline-block;
+      color: #fff;
+      animation: blink 0.7s infinite;
+      font-weight: 500;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #222;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-content iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .close {
+      color: #fff;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Floating Tech Bubbles with Icons */
+    .bubble {
+      position: absolute;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      color: #fff;
+      animation: float 10s infinite ease-in-out alternate;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 12px rgba(0, 174, 255, 0.4);
+      z-index: 1;
+      font-size: 18px;
+    }
+
+    .bubble:nth-child(1) { top: 5%; left: 10%; animation-delay: 0s; }
+    .bubble:nth-child(2) { top: 80%; left: 5%; animation-delay: 2s; }
+    .bubble:nth-child(3) { top: 50%; left: 90%; animation-delay: 4s; }
+    .bubble:nth-child(4) { top: 10%; right: 15%; animation-delay: 1s; }
+    .bubble:nth-child(5) { bottom: 10%; left: 40%; animation-delay: 3s; }
+    .bubble:nth-child(6) { bottom: 25%; right: 10%; animation-delay: 5s; }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+      100% { transform: translateY(-20px) rotate(360deg); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left-section, .right-section {
+        width: 100%;
+        text-align: center;
+      }
+
+      nav {
+        align-items: center;
+      }
+
+      spline-viewer {
+        width: 100%;
+        transform: translateX(0);
+      }
+
+      .resume-btn {
+        align-self: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .left-section h1 {
+        font-size: 2rem;
+      }
+
+      .left-section p {
+        font-size: 1rem;
+      }
+
+      nav a {
+        padding: 6px 10px;
+      }
+      spline-viewer {
+        width: 135%;
+        height: 150%;
+        transform: translateX(14%);
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Icon Bubbles -->
+  <span class="bubble"><i class="fab fa-python"></i></span>
+  <span class="bubble"><i class="fas fa-leaf"></i></span> <!-- Django -->
+  <span class="bubble"><i class="fab fa-js-square"></i></span>
+  <span class="bubble"><i class="fab fa-html5"></i></span>
+  <span class="bubble"><i class="fab fa-css3-alt"></i></span>
+  <span class="bubble"><i class="fas fa-vial"></i></span> <!-- Selenium -->
+  <i class="fas fa-robot bubble" style="top: 40%; left: 12%;"></i>
+  <i class="fab fa-aws bubble" style="top: 75%; right: 35%;"></i>
+  <i class="fab fa-github bubble" style="top: 10%; left: 12%;"></i>
+  <i class="fab fa-css3-alt bubble" style="top: 20%; right: 12%;"></i>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <div class="left-section">
+      <h1>Arunkumar</h1>
+      <p><span id="typewriter"></span><span class="cursor">|</span></p>
+      <nav>
+        <a href="works.html">Works</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="certifications.html">Certifications</a>
+        <a class="resume-btn" onclick="openResume()">Resume</a>
+      </nav>
+    </div>
+    <div class="right-section">
+      <spline-viewer url="https://prod.spline.design/gRml72ZiMX0XPDP6/scene.splinecode"></spline-viewer>
+    </div>
+  </div>
+
+  <!-- Resume Modal -->
+  <div id="resumeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeResume()">&times;</span>
+      <iframe src="resume.pdf" title="Resume Preview"></iframe>
+    </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.16/build/spline-viewer.js"></script>
+
+  <script>
+    const text = "Software & Web Developer";
+    const typewriter = document.getElementById("typewriter");
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        typewriter.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, 100);
+      }
+    }
+
+    window.onload = type;
+
+    function openResume() {
+      document.getElementById("resumeModal").style.display = "block";
+    }
+
+    function closeResume() {
+      document.getElementById("resumeModal").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById("resumeModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>
